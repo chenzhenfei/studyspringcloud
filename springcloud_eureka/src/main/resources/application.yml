@@ -1,0 +1,12 @@
+server:
+  port: 8088
+    # eureka
+eureka:
+   instance:
+     hostname: localhost
+   client:
+     fetch-registry: false
+     register-with-eureka: false
+     service-url: #可以配置多个 已map key -value 方式
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
