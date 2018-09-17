@@ -7,6 +7,6 @@ eureka:
    client:
      fetch-registry: false
      register-with-eureka: false
-     service-url: #可以配置多个 已map key -value 方式
+     service-url: # map key-value
        defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
