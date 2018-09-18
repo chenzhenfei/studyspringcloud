@@ -9,8 +9,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ServiceRemeberApplicationTests {
 
-    @Test
-    public void contextLoads() {
-    }
+
+
+
+
+
 
 }
