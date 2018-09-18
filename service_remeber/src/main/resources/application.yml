@@ -9,3 +9,15 @@ spring:
     name: service-member
 
 
+  # actuator 监控配置
+info:
+  personinfo_a:
+    name: chenzhenfei
+    email: 916927902@qq.com
+  personinfo_b:
+    age: 25
+    hobbies: running
+  build:
+    artifact: "@project.artifactId@"
+    name: "@project.name@"
+    version: "@project.version@"
