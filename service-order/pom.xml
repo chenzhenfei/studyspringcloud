@@ -31,6 +31,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <!-- 引入 ribbon 作为客户端 的负载均衡器 它提供对大量的HTTP和TCP客户端的访问控制 (restTempLate 或者 feign 也都是用的是ribbon)-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-ribbon</artifactId>

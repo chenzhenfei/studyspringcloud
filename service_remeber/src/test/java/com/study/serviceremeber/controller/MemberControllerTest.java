@@ -28,25 +28,25 @@ import static org.junit.Assert.*;
  * spring boot 集成 mockmvc controllder 测试
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @AutoConfigureMockMvc
+@SpringBootTest
 @WebAppConfiguration
 public class MemberControllerTest {
 
-   private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-   @Autowired
-   private WebApplicationContext webApplicationContext;
+    @Autowired
+    private WebApplicationContext webApplicationContext;
 
-   @Before
-   public void setupMockMvc(){
-       this.mockMvc=MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-   }
+    @Before
+    public void setupMockMvc() {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+    }
 
-   @Test
+    @Test
     public void testGetMemberList() throws Exception {
-       mockMvc.perform(MockMvcRequestBuilders.get("/member/list"))
-       .andExpect(MockMvcResultMatchers.status().isOk());
+        mockMvc.perform(MockMvcRequestBuilders.get("/member/list"))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
 }
