@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -33,6 +34,20 @@ public class MemberController {
         resutl.add("lisi");
         resutl.add("wangwu");
         resutl.add("serverPort:"+this.port);
+        return  resutl;
+    }
+
+
+
+    @GetMapping("/list1")
+    @ApiOperation(value = "获取会员列表",notes = "获取所有的会员列表",response = List.class)
+    public List<String> getMemberListForZullFilter(@RequestParam("filter") String filter){
+        List<String> resutl =new ArrayList<>();
+        resutl.add("zhangsan");
+        resutl.add("lisi");
+        resutl.add("wangwu");
+        resutl.add("serverPort:"+this.port);
+        resutl.add("requestParam:"+filter);
         return  resutl;
     }
 }

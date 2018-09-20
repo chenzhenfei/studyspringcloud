@@ -1,0 +1,31 @@
+server:
+  port: 8766
+spring:
+  application:
+    name: service-zuul
+    #网关配置
+zuul:  # 默认网关映射逻辑为 http://serverip:port/service-name/** 下的路由地址 映射到 service-name 服务下
+  #prefix: /api    #设置前缀 htpp://serverip:port/api/service-name/**  --> service-name
+  #ignored-services: service-order # 使用网关‘忽略’对服务 service-order 的路由映射管理，可以设置多个 a,b,c
+  routes: #路径列表,自定义名称（建议使用被调用的微服务名称）
+     servicemember:  # 生产者
+            path: /service-member/**
+            serviceId: service-member
+     serviceorder:  #消费者
+                 path: /service-order/**
+                 serviceId: service-order  #（映射方式之一）
+                  #url :http://localhost:8762 （映射方式之二） 也可以直接通过url 来设置映射的服务地址
+                                 #(但是这种方式配置的路由不会作为 hystrixCommand 执行，同时也不能使用ribbon 来负载均衡，因为使用了具体的服务映射的ip 和端口确定了唯一服务，建议采用方式一)
+  ignored-patterns: /**/order/listForRest* #忽略member下所有包含list的路径 的路径，可以使得忽略的颗粒度缩小到具体服务以内的路由地址
+
+#服务注册到 eureka 服务中心
+eureka:
+  client:
+    service-url:
+         defaultZone: http://localhost:8088/eureka/
+
+
+# actuator 端点监控管理 可以根据 http://loacalhost:port/routes 查看路由映射
+management:
+  security:
+    enabled: false
