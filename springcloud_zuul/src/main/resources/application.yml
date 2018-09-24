@@ -16,7 +16,7 @@ zuul:  # 默认网关映射逻辑为 http://serverip:port/service-name/** 下的
                  serviceId: service-order  #（映射方式之一）
                   #url :http://localhost:8762 （映射方式之二） 也可以直接通过url 来设置映射的服务地址
                                  #(但是这种方式配置的路由不会作为 hystrixCommand 执行，同时也不能使用ribbon 来负载均衡，因为使用了具体的服务映射的ip 和端口确定了唯一服务，建议采用方式一)
-  ignored-patterns: /**/order/listForRest* #忽略member下所有包含list的路径 的路径，可以使得忽略的颗粒度缩小到具体服务以内的路由地址
+    #ignored-patterns: /**/order/listForRest* #忽略member下所有包含list的路径 的路径，可以使得忽略的颗粒度缩小到具体服务以内的路由地址
 
 #服务注册到 eureka 服务中心
 eureka:

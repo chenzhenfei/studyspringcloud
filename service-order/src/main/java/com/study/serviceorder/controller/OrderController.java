@@ -28,14 +28,14 @@ public class OrderController {
     @ApiOperation(value ="根据RestTemplate 客户端调用服务",notes = "使用restTemplate 客户端调用接口服务",response = List.class)
     @GetMapping("/listForRestTempLate")
     public List<String> getMemberListForRestTemplate(){
-        System.out.println("订单服务开始调用会员服务");
+        System.out.println("订单服务通过Rest客户端开始调用会员服务");
         return orderMemberService.getMemberList();
     }
 
     @ApiOperation(value ="根据RestTemplate 客户端调用服务",notes = "使用restTemplate 客户端调用接口服务",response = List.class)
     @GetMapping("/listForFeignClient")
     public List<String> getMemberListForFeign(){
-        System.out.println("订单服务开始调用会员服务");
+        System.out.println("订单服务通过Feign客户端开始调用会员服务");
         return orderMemberServiceFeign.getMemberList();
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * 使用feign client 实现服务调用  均有ribbon 的负债均衡支持
  */
 
-@FeignClient(value = "service-member",path = "/member")
+@FeignClient(value = "service-member",path = "/member",fallback = OrderMemberServiceFeignFallBack.class)
 public interface OrderMemberServiceFeign {
 
     @RequestMapping(value ="/list", method = RequestMethod.GET,

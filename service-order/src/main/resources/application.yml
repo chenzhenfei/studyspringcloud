@@ -4,9 +4,15 @@ eureka:
          defaultZone: http://localhost:8088/eureka/
 server:
   port: 8764
+  tomcat:
+    max-threads: 50
 spring:
   application:
     name: service-order
+# feign 客户端
+feign:
+   hystrix:
+     enabled: true
 
  # actuator 监控配置
 info:
@@ -20,3 +26,12 @@ info:
     artifact: "@project.artifactId@"
     name: "@project.name@"
     version: "@project.version@"
+
+## 设置超时时间
+hystrix:
+  command:
+     default:
+       execution:
+        isolation:
+        thread:
+        timeoutInMilliseconds: 3000

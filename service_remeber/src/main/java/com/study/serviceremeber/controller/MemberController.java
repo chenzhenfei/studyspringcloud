@@ -28,7 +28,8 @@ public class MemberController {
 
     @GetMapping("/list")
     @ApiOperation(value = "获取会员列表",notes = "获取所有的会员列表",response = List.class)
-    public List<String> getMemberList(){
+    public List<String> getMemberList() throws InterruptedException {
+        Thread.sleep(3000);
         List<String> resutl =new ArrayList<>();
         resutl.add("zhangsan");
         resutl.add("lisi");
@@ -41,7 +42,8 @@ public class MemberController {
 
     @GetMapping("/list1")
     @ApiOperation(value = "获取会员列表",notes = "获取所有的会员列表",response = List.class)
-    public List<String> getMemberListForZullFilter(@RequestParam("filter") String filter){
+    public List<String> getMemberListForZullFilter(@RequestParam("filter") String filter) throws InterruptedException {
+//        Thread.sleep(500);
         List<String> resutl =new ArrayList<>();
         resutl.add("zhangsan");
         resutl.add("lisi");
